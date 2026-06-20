@@ -33,7 +33,7 @@ export default function DemoMegaMenuPage() {
   return (
     <>
       <Head>
-        <title>Components: Mega Menu | ZONE UI</title>
+        <title>Components: Mega Menu | YAS Media</title>
       </Head>
 
       <Box

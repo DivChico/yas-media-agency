@@ -77,7 +77,7 @@ export default function DemoMarkdownPage() {
   return (
     <>
       <Head>
-        <title>Extra Components: Markdown | ZONE UI</title>
+        <title>Extra Components: Markdown | YAS Media</title>
       </Head>
 
       <Box

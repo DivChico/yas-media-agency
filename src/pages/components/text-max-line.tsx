@@ -21,7 +21,7 @@ export default function DemoTextMaxLinePage() {
   return (
     <>
       <Head>
-        <title>Components: Text Max Line | ZONE UI</title>
+        <title>Components: Text Max Line | YAS Media</title>
       </Head>
 
       <Box

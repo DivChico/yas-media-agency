@@ -15,7 +15,7 @@ export default function VerifyCodePage() {
   return (
     <>
       <Head>
-        <title>Verify Code | ZONE UI</title>
+        <title>Verify Code | YAS Media</title>
       </Head>
 
       <VerifyCodeView />

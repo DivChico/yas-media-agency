@@ -34,7 +34,7 @@ export default function DemoPlayerPage() {
   return (
     <>
       <Head>
-        <title>Components: Player | ZONE UI</title>
+        <title>Components: Player | YAS Media</title>
       </Head>
 
       <Box

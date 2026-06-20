@@ -15,7 +15,7 @@ export default function BlogPage() {
   return (
     <>
       <Head>
-        <title>Blog | ZONE UI</title>
+        <title>Blog | YAS Media</title>
       </Head>
 
       <MarketingBlogView />

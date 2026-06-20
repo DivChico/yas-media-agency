@@ -73,7 +73,7 @@ export default function HomeCombination() {
               },
             }}
           >
-            Minimal UI Kit is a professional dashboard used by many of our clients.
+            YAS Media Agency is a professional dashboard used by many of our clients.
           </Typography>
         </m.div>
 

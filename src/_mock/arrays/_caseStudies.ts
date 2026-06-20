@@ -9,7 +9,7 @@ const TITLE = [
   'Digital Shose',
   'Action Car',
   'The Zone UI',
-  'Minimal UI',
+  'YAS Media Agency',
   'Network Firefox',
 ];
 

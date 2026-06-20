@@ -15,7 +15,7 @@ export default function ResetPasswordPage() {
   return (
     <>
       <Head>
-        <title>Reset Password | ZONE UI</title>
+        <title>Reset Password | YAS Media</title>
       </Head>
 
       <ResetPasswordView />

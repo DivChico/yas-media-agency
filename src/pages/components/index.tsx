@@ -37,7 +37,7 @@ export default function ComponentsPage() {
   return (
     <>
       <Head>
-        <title>Components | ZONE UI</title>
+        <title>Components | YAS Media</title>
       </Head>
 
       <Container sx={{ mt: 5, mb: 10 }}>

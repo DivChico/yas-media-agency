@@ -35,10 +35,10 @@ const Meta = () => (
     <meta name="theme-color" content={palette('light').primary.main} />
     <meta
       name="description"
-      content="The ZONE is built on top of MUI, a powerful library that provides flexible, customizable, and easy-to-use components."
+      content="YAS Media Agency is an AI-Native digital marketing agency based in Riyadh, Saudi Arabia. We help enterprises across KSA and GCC grow through data-driven marketing."
     />
-    <meta name="keywords" content="react,material,kit,application,landing & corporate,template" />
-    <meta name="author" content="ZONE UI Kit" />
+    <meta name="keywords" content="digital marketing agency, AI marketing, Riyadh, Saudi Arabia, GCC, social media management, SEO" />
+    <meta name="author" content="YAS Media Agency" />
   </>
 );
 
@@ -55,6 +55,20 @@ export default function MyDocument({ emotionStyleTags }: MyDocumentProps) {
         {/* Emotion */}
         <meta name="emotion-insertion-point" content="" />
         {emotionStyleTags}
+        {/* Google Fonts: Manrope */}
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+        />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <body>
         <Main />

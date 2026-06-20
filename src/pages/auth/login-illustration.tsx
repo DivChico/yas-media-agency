@@ -15,7 +15,7 @@ export default function LoginIllustrationPage() {
   return (
     <>
       <Head>
-        <title>Login Illustration | ZONE UI</title>
+        <title>Login Illustration | YAS Media</title>
       </Head>
 
       <LoginIllustrationView />

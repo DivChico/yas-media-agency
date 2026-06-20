@@ -31,7 +31,7 @@ export default function DemoCountUpPage() {
   return (
     <>
       <Head>
-        <title>Components: CountUp | ZONE UI</title>
+        <title>Components: CountUp | YAS Media</title>
       </Head>
 
       <Box

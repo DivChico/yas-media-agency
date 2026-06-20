@@ -17,7 +17,7 @@ export default function RegisterBackgroundPage() {
   return (
     <>
       <Head>
-        <title>Register Background | ZONE UI</title>
+        <title>Register Background | YAS Media</title>
       </Head>
 
       <RegisterBackgroundView />

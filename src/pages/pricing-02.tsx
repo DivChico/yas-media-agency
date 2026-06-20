@@ -15,7 +15,7 @@ export default function Pricing02Page() {
   return (
     <>
       <Head>
-        <title>Pricing 02 | ZONE UI</title>
+        <title>Pricing 02 | YAS Media</title>
       </Head>
 
       <Pricing02View />

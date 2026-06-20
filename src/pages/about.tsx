@@ -15,7 +15,7 @@ export default function AboutPage() {
   return (
     <>
       <Head>
-        <title>About Us | ZONE UI</title>
+        <title>About Us | YAS Media</title>
       </Head>
 
       <MarketingAboutView />

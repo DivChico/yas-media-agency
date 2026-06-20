@@ -40,7 +40,7 @@ export default function DemoAnimatePage() {
   return (
     <>
       <Head>
-        <title>Components: Animate | ZONE UI</title>
+        <title>Components: Animate | YAS Media</title>
       </Head>
 
       <Box

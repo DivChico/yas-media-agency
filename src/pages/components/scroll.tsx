@@ -20,7 +20,7 @@ export default function DemoScrollbarPage() {
   return (
     <>
       <Head>
-        <title>Components: Scrollbar | ZONE UI</title>
+        <title>Components: Scrollbar | YAS Media</title>
       </Head>
 
       <Box

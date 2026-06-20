@@ -10,7 +10,7 @@ import { bgBlur } from 'src/utils/cssStyles';
 import { HEADER } from 'src/config-global';
 // components
 import Logo from 'src/components/logo';
-import SettingsDrawer from 'src/components/settings/drawer';
+import { useSettingsContext } from 'src/components/settings';
 //
 import { NavMobile, NavDesktop, navConfig } from '../nav';
 import HeaderShadow from '../../components/HeaderShadow';
@@ -23,6 +23,7 @@ type Props = {
 
 export default function Header({ headerOnDark }: Props) {
   const theme = useTheme();
+  const { themeDirection, onToggleDirection } = useSettingsContext();
 
   const isMdUp = useResponsive('up', 'md');
 
@@ -44,13 +45,14 @@ export default function Header({ headerOnDark }: Props) {
           ...(headerOnDark && {
             color: 'common.white',
           }),
+          ...bgBlur({ color: '#050505' }),
           ...(isOffset && {
-            ...bgBlur({ color: theme.palette.background.default }),
             color: 'text.primary',
             height: {
               md: HEADER.H_MAIN_DESKTOP - 16,
             },
           }),
+          borderBottom: '1px solid rgba(255,255,255,0.05)',
         }}
       >
         <Container sx={{ height: 1, display: 'flex', alignItems: 'center' }}>
@@ -67,15 +69,26 @@ export default function Header({ headerOnDark }: Props) {
             alignItems="center"
             justifyContent="flex-end"
           >
-            <SettingsDrawer />
+            <Button
+              onClick={onToggleDirection}
+              size="small"
+              variant="text"
+              sx={{
+                minWidth: 40,
+                color: headerOnDark ? 'common.white' : 'text.secondary',
+                fontWeight: 700,
+              }}
+            >
+              {themeDirection === 'rtl' ? 'EN' : 'AR'}
+            </Button>
 
             {isMdUp && (
               <Button
                 variant="contained"
                 color="inherit"
-                href="/contact"
+                href="/#contact"
               >
-                Let&apos;s Talk
+                Work With Us
               </Button>
             )}
           </Stack>

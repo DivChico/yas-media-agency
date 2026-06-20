@@ -1,13 +1,7 @@
-// routes
-import { paths } from 'src/routes/paths';
-
-// ----------------------------------------------------------------------
-
 export const navConfig = [
-  { title: 'Home', path: paths.landing },
-  { title: 'Services', path: paths.services },
-  { title: 'Case Studies', path: paths.caseStudies },
-  { title: 'Blog', path: paths.posts },
-  { title: 'About', path: paths.about },
-  { title: 'Contact', path: paths.contact },
+  { title: 'Home', path: '/' },
+  { title: 'Services', path: '/#services' },
+  { title: 'Portfolio', path: '/#portfolio' },
+  { title: 'About', path: '/#about' },
+  { title: 'Contact', path: '/#contact' },
 ];

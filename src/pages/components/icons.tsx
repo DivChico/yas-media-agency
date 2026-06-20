@@ -32,7 +32,7 @@ export default function DemoIconsPage() {
   return (
     <>
       <Head>
-        <title>Components: Icons | ZONE UI</title>
+        <title>Components: Icons | YAS Media</title>
       </Head>
 
       <Box

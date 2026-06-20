@@ -36,7 +36,7 @@ export default function DemoFormValidationPage() {
   return (
     <>
       <Head>
-        <title>Components: Form Validation | ZONE UI</title>
+        <title>Components: Form Validation | YAS Media</title>
       </Head>
 
       <Box

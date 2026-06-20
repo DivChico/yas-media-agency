@@ -41,7 +41,7 @@ export default function DemoCarouselsPage() {
   return (
     <>
       <Head>
-        <title>Components: Carousels | ZONE UI</title>
+        <title>Components: Carousels | YAS Media</title>
       </Head>
 
       <Box

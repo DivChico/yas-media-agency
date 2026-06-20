@@ -9,7 +9,7 @@ export default function LoginCoverPage() {
   return (
     <>
       <Head>
-        <title>Login Cover | ZONE UI</title>
+        <title>Login Cover | YAS Media</title>
       </Head>
 
       <LoginCoverView />

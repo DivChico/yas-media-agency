@@ -31,7 +31,7 @@ export default function DemoImagePage() {
   return (
     <>
       <Head>
-        <title>Components: Image | ZONE UI</title>
+        <title>Components: Image | YAS Media</title>
       </Head>
 
       <Box

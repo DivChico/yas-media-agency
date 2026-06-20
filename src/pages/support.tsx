@@ -15,7 +15,7 @@ export default function SupportPage() {
   return (
     <>
       <Head>
-        <title>Support | ZONE UI</title>
+        <title>Support | YAS Media</title>
       </Head>
 
       <SupportView />

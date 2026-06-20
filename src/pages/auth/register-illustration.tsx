@@ -17,7 +17,7 @@ export default function RegisterIllustrationPage() {
   return (
     <>
       <Head>
-        <title>Register Illustration | ZONE UI</title>
+        <title>Register Illustration | YAS Media</title>
       </Head>
 
       <RegisterIllustrationView />

@@ -1,103 +1,91 @@
-// next
-import { useRouter } from 'next/router';
-import NextLink from 'next/link';
 // @mui
-import { Link, Stack, Button, Divider, Container, Typography, IconButton, StackProps } from '@mui/material';
-// hooks
-import useResponsive from 'src/hooks/useResponsive';
-// _mock
-import { _socials } from 'src/_mock';
+import { Link, Stack, Divider, Container, Typography, IconButton } from '@mui/material';
 // components
 import Logo from 'src/components/logo';
 import Iconify from 'src/components/iconify';
-//
-import { navConfig } from '../nav/config-navigation';
+
+// ----------------------------------------------------------------------
+
+const navLinks = [
+  { title: 'About Us', path: '/' },
+  { title: 'Services', path: '/#services' },
+  { title: 'Portfolio', path: '/#portfolio' },
+  { title: 'Contact', path: '/#contact' },
+];
+
+const socialLinks = [
+  { icon: 'ri:instagram-fill', href: 'https://www.instagram.com/yasmedia.sa/' },
+  { icon: 'ri:behance-fill', href: 'https://www.behance.net/yasmedia' },
+  { icon: 'ri:whatsapp-fill', href: 'https://wa.me/966500000000' },
+];
 
 // ----------------------------------------------------------------------
 
 export default function Footer() {
-  const isMdUp = useResponsive('up', 'md');
+  return (
+    <footer>
+      <Divider sx={{ borderColor: 'rgba(255,255,255,0.05)' }} />
 
-  const { pathname } = useRouter();
-
-  const isHome = pathname === '/';
-
-  const simpleFooter = (
-    <Container sx={{ py: 8, textAlign: 'center' }}>
-      <Logo single />
-
-      <Typography variant="caption" component="div" sx={{ color: 'text.secondary' }}>
-        © 2023. All rights reserved
-      </Typography>
-    </Container>
-  );
-
-  const mainFooter = (
-    <>
-      <Divider />
-
-      <Container
-        sx={{
-          py: { xs: 8, md: 10 },
-        }}
-      >
+      <Container sx={{ py: { xs: 8, md: 10 } }}>
         <Stack
-          spacing={3}
+          spacing={4}
           direction={{ xs: 'column', md: 'row' }}
           justifyContent="space-between"
           alignItems={{ md: 'flex-start' }}
         >
-          <Stack spacing={3} sx={{ maxWidth: 320 }}>
+          <Stack spacing={3} sx={{ maxWidth: 400 }}>
             <Logo />
-            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              The starting point for your next project based on easy-to-customize Material-UI ©
-              helps you build apps faster and better.
+            <Typography variant="body2" sx={{ color: 'grey.500', lineHeight: 1.8 }}>
+              AI-Native Digital Marketing Agency based in Riyadh, Saudi Arabia. We partner with
+              enterprises across KSA and GCC to drive growth through data-driven marketing, AI
+              automation, and creative excellence.
             </Typography>
           </Stack>
 
-          <Stack spacing={1} alignItems={{ xs: 'flex-start', md: 'flex-end' }}>
-            {isMdUp && (
-              <Stack direction="row" spacing={3} flexWrap="wrap" useFlexGap>
-                {navConfig.map((link) => (
-                  <Link
-                    key={link.title}
-                    component={NextLink}
-                    href={link.path}
-                    variant="body2"
-                    sx={{ color: 'text.secondary' }}
-                  >
-                    {link.title}
-                  </Link>
-                ))}
-              </Stack>
-            )}
+          <Stack spacing={3} alignItems={{ xs: 'flex-start', md: 'flex-end' }}>
+            <Stack direction="row" spacing={3} flexWrap="wrap" useFlexGap>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.title}
+                  href={link.path}
+                  variant="body2"
+                  sx={{ color: 'grey.500', '&:hover': { color: 'primary.main' } }}
+                >
+                  {link.title}
+                </Link>
+              ))}
+            </Stack>
 
             <Stack direction="row" alignItems="center">
-              {_socials.map((social) => (
-                <IconButton key={social.value} color="primary">
+              {socialLinks.map((social) => (
+                <IconButton
+                  key={social.icon}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener"
+                  sx={{ color: 'grey.500', '&:hover': { color: 'primary.main' } }}
+                >
                   <Iconify icon={social.icon} />
                 </IconButton>
               ))}
             </Stack>
+
+            <Typography variant="caption" sx={{ color: 'grey.500' }}>
+              info@yasmedia.com
+            </Typography>
           </Stack>
         </Stack>
       </Container>
 
-      <Divider />
+      <Divider sx={{ borderColor: 'rgba(255,255,255,0.05)' }} />
+
       <Container>
-        <Stack
-          spacing={2.5}
-          direction={{ xs: 'column', md: 'row' }}
-          justifyContent="space-between"
-          sx={{ py: 3, textAlign: 'center' }}
-        >
-          <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-            © 2023. All rights reserved
+        <Stack sx={{ py: 3, textAlign: 'center' }}>
+          <Typography variant="caption" sx={{ color: 'grey.600' }}>
+            &copy; 2025 YAS Media Agency. All rights reserved
           </Typography>
         </Stack>
       </Container>
-    </>
+    </footer>
   );
-
-  return <footer>{isHome ? simpleFooter : mainFooter}</footer>;
 }

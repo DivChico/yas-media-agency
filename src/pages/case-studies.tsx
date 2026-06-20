@@ -15,7 +15,7 @@ export default function CaseStudiesPage() {
   return (
     <>
       <Head>
-        <title>Case Studies | ZONE UI</title>
+        <title>Case Studies | YAS Media</title>
       </Head>
 
       <MarketingCaseStudiesView />

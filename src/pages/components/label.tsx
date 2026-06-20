@@ -26,7 +26,7 @@ export default function DemoLabelPage() {
   return (
     <>
       <Head>
-        <title>Components: Label | ZONE UI</title>
+        <title>Components: Label | YAS Media</title>
       </Head>
 
       <Box

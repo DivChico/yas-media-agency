@@ -15,7 +15,7 @@ export default function ContactPage() {
   return (
     <>
       <Head>
-        <title>Contact Us | ZONE UI</title>
+        <title>Contact Us | YAS Media</title>
       </Head>
 
       <MarketingContactView />

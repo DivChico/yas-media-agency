@@ -5,3 +5,4 @@ export { default as MarketingLandingFreeSEO } from './MarketingLandingFreeSEO';
 export { default as MarketingLandingProcess } from './MarketingLandingProcess';
 export { default as MarketingLandingServices } from './MarketingLandingServices';
 export { default as MarketingLandingCaseStudies } from './MarketingLandingCaseStudies';
+export { default as MarketingLandingWhatsApp } from './MarketingLandingWhatsApp';

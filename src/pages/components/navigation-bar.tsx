@@ -23,7 +23,7 @@ export default function DemoNavigationBarPage() {
   return (
     <>
       <Head>
-        <title>Components: Navigation Bar | ZONE UI</title>
+        <title>Components: Navigation Bar | YAS Media</title>
       </Head>
 
       <Box

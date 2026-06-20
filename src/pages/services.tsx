@@ -15,7 +15,7 @@ export default function ServicesPage() {
   return (
     <>
       <Head>
-        <title>Services | ZONE UI</title>
+        <title>Services | YAS Media</title>
       </Head>
 
       <MarketingServicesView />

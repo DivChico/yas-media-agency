@@ -80,7 +80,7 @@ export default function DemoLightboxPage() {
   return (
     <>
       <Head>
-        <title>Components: Lightbox | ZONE UI</title>
+        <title>Components: Lightbox | YAS Media</title>
       </Head>
 
       <Box
