@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import {
   Stack,
   Container,
@@ -8,37 +8,19 @@ import {
   AccordionDetails,
 } from '@mui/material';
 import Iconify from 'src/components/iconify';
-
-const faqs = [
-  {
-    question: 'What services does YAS Media Agency offer?',
-    answer:
-      'We offer a full spectrum of digital marketing services including social media management, content creation, paid advertising (PPC), search engine optimization (SEO), branding & identity design, web development, influencer marketing, and AI-powered marketing analytics. Every service is tailored to your business goals.',
-  },
-  {
-    question: 'What industries do you serve?',
-    answer:
-      'We primarily serve mid-to-large enterprises across Saudi Arabia and the wider GCC region. Our expertise spans real estate, retail & e-commerce, hospitality, fintech, healthcare, entertainment, and government sectors. We understand the regional market landscape and cultural nuances.',
-  },
-  {
-    question: 'How do you use AI in marketing?',
-    answer:
-      'AI is embedded in everything we do. We use machine learning for predictive audience targeting, AI-driven content personalization, automated campaign optimization, sentiment analysis on social listening, and generative AI for creative assets at scale. This means faster results and better ROI for our clients.',
-  },
-  {
-    question: 'What is the typical engagement process?',
-    answer:
-      'Our process follows a proven four-phase framework: Discovery (audit, research, goal-setting) → Strategy (roadmap, creative direction, channel planning) → Execute (campaign launch, content production, deployment) → Optimize (real-time analytics, A/B testing, refinement). We stay agile and iterate based on data.',
-  },
-  {
-    question: 'How long does it take to see results?',
-    answer:
-      'Timelines depend on the scope of work and channels involved. Typically, clients see initial measurable results within 30–60 days for paid campaigns and content marketing. SEO and brand-building efforts gain meaningful traction within 3–6 months. We set clear milestones and provide transparent reporting from day one.',
-  },
-];
+import { useLocales } from 'src/hooks/useLocales';
 
 export default function MarketingLandingFaqs() {
+  const { t } = useLocales();
   const [expanded, setExpanded] = useState<string | false>(false);
+
+  const faqs = useMemo(() => [
+    { question: t('faq_1_q'), answer: t('faq_1_a') },
+    { question: t('faq_2_q'), answer: t('faq_2_a') },
+    { question: t('faq_3_q'), answer: t('faq_3_a') },
+    { question: t('faq_4_q'), answer: t('faq_4_a') },
+    { question: t('faq_5_q'), answer: t('faq_5_a') },
+  ], [t]);
 
   const handleChangeExpanded =
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
@@ -54,9 +36,9 @@ export default function MarketingLandingFaqs() {
     >
       <Stack spacing={1} sx={{ mb: 8, textAlign: 'center' }}>
         <Typography variant="overline" sx={{ color: 'text.disabled' }}>
-          FAQ
+          {t('faq_overline')}
         </Typography>
-        <Typography variant="h2">Frequently Asked Questions</Typography>
+        <Typography variant="h2">{t('faq_title')}</Typography>
       </Stack>
 
       <Stack spacing={1} sx={{ maxWidth: 800, mx: 'auto' }}>

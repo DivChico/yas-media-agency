@@ -1,5 +1,7 @@
 // @mui
 import { Stack } from '@mui/material';
+// hooks
+import { useLocales } from 'src/hooks/useLocales';
 //
 import { NavProps } from '../types';
 import NavList from './NavList';
@@ -7,6 +9,24 @@ import NavList from './NavList';
 // ----------------------------------------------------------------------
 
 export default function NavDesktop({ data, sx }: NavProps) {
+  const { t } = useLocales();
+
+  const navTitleKey = (title: string): 'nav_home' | 'nav_services' | 'nav_portfolio' | 'nav_about' | 'nav_contact' => {
+    const map: Record<string, 'nav_home' | 'nav_services' | 'nav_portfolio' | 'nav_about' | 'nav_contact'> = {
+      home: 'nav_home',
+      services: 'nav_services',
+      portfolio: 'nav_portfolio',
+      about: 'nav_about',
+      contact: 'nav_contact',
+    };
+    return map[title.toLowerCase()] || 'nav_home';
+  };
+
+  const translatedData = data.map((link) => ({
+    ...link,
+    title: t(navTitleKey(link.title)),
+  }));
+
   return (
     <Stack
       component="nav"
@@ -18,7 +38,7 @@ export default function NavDesktop({ data, sx }: NavProps) {
         ...sx,
       }}
     >
-      {data.map((link) => (
+      {translatedData.map((link) => (
         <NavList key={link.title} item={link} />
       ))}
     </Stack>

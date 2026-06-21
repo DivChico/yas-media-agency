@@ -1,3 +1,4 @@
+import { useLocales } from 'src/hooks/useLocales';
 import { styled, alpha } from '@mui/material/styles';
 import { Stack, Button, Container, Typography, Box } from '@mui/material';
 import { bgGradient } from 'src/utils/cssStyles';
@@ -21,6 +22,7 @@ const StyledRoot = styled('div')(({ theme }) => ({
 }));
 
 export default function MarketingLandingFreeSEO() {
+  const { t } = useLocales();
   return (
     <StyledRoot>
       <Box
@@ -58,13 +60,13 @@ export default function MarketingLandingFreeSEO() {
               WebkitTextFillColor: 'transparent',
             }}
           >
-            Ready to transform your digital presence?
+            {t('cta_title')}
           </Typography>
           <Typography
             variant="h6"
             sx={{ color: 'text.secondary', fontWeight: 400, maxWidth: 500 }}
           >
-            Let&apos;s build something exceptional together. Get in touch with our team.
+            {t('cta_subtitle')}
           </Typography>
           <Button
             size="large"
@@ -83,7 +85,7 @@ export default function MarketingLandingFreeSEO() {
             }}
             endIcon={<Iconify icon="carbon:arrow-right" />}
           >
-            Contact Us Today
+            {t('cta_button')}
           </Button>
         </Stack>
       </Container>

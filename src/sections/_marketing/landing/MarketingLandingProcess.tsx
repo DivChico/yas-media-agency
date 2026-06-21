@@ -1,33 +1,7 @@
 import { styled, alpha } from '@mui/material/styles';
 import { Stack, Container, Typography, Box } from '@mui/material';
 import Iconify from 'src/components/iconify';
-
-const STEPS = [
-  {
-    step: 1,
-    icon: 'carbon:search',
-    title: 'Discovery',
-    description: 'We analyze your brand, market, and competitors to uncover opportunities.',
-  },
-  {
-    step: 2,
-    icon: 'carbon:plan',
-    title: 'Strategy',
-    description: 'Data-backed strategy tailored to your goals and target audience.',
-  },
-  {
-    step: 3,
-    icon: 'carbon:rocket',
-    title: 'Execute',
-    description: 'AI-powered execution across all channels for maximum impact.',
-  },
-  {
-    step: 4,
-    icon: 'carbon:growth',
-    title: 'Optimize',
-    description: 'Continuous optimization for measurable ROI and sustained growth.',
-  },
-];
+import { useLocales } from 'src/hooks/useLocales';
 
 const Connector = styled(Box)(({ theme }) => ({
   width: 2,
@@ -43,13 +17,22 @@ const Connector = styled(Box)(({ theme }) => ({
 }));
 
 export default function MarketingLandingProcess() {
+  const { t } = useLocales();
+
+  const STEPS = [
+    { step: 1, icon: 'carbon:search', title: t('process_1_title'), description: t('process_1_desc') },
+    { step: 2, icon: 'carbon:plan', title: t('process_2_title'), description: t('process_2_desc') },
+    { step: 3, icon: 'carbon:rocket', title: t('process_3_title'), description: t('process_3_desc') },
+    { step: 4, icon: 'carbon:growth', title: t('process_4_title'), description: t('process_4_desc') },
+  ];
+
   return (
     <Container sx={{ py: { xs: 5, md: 10 } }}>
       <Stack spacing={1} sx={{ textAlign: 'center', mb: { xs: 6, md: 10 } }}>
         <Typography variant="overline" sx={{ color: 'primary.main' }}>
-          How We Work
+          {t('process_overline')}
         </Typography>
-        <Typography variant="h2">From Strategy to Results</Typography>
+        <Typography variant="h2">{t('process_title')}</Typography>
       </Stack>
 
       <Stack

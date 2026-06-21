@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+import { useLocales } from 'src/hooks/useLocales';
 import { styled, alpha } from '@mui/material/styles';
 import {
   Box,
@@ -6,12 +7,6 @@ import {
   Container,
   Typography,
 } from '@mui/material';
-
-const portfolioItems = [
-  { title: 'Brand Identity System', category: 'Branding', gradient: 'linear-gradient(135deg, #8311d4, #2D0054)' },
-  { title: 'Social Media Campaign', category: 'Social Media', gradient: 'linear-gradient(135deg, #fbef2d, #8311d4)' },
-  { title: 'Digital Transformation', category: 'Digital Strategy', gradient: 'linear-gradient(135deg, #2D0054, #050505)' },
-];
 
 const StyledOverlay = styled('div')(({ theme }) => ({
   background: alpha(theme.palette.common.black, 0.4),
@@ -42,7 +37,14 @@ const PortfolioCard = styled(Box)(({ theme }) => ({
 }));
 
 export default function MarketingLandingCaseStudies() {
+  const { t } = useLocales();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const portfolioItems = useMemo(() => [
+    { title: t('portfolio_1_title'), category: t('portfolio_1_cat'), gradient: 'linear-gradient(135deg, #8311d4, #2D0054)' },
+    { title: t('portfolio_2_title'), category: t('portfolio_2_cat'), gradient: 'linear-gradient(135deg, #fbef2d, #8311d4)' },
+    { title: t('portfolio_3_title'), category: t('portfolio_3_cat'), gradient: 'linear-gradient(135deg, #2D0054, #050505)' },
+  ], [t]);
 
   return (
     <Container
@@ -54,9 +56,9 @@ export default function MarketingLandingCaseStudies() {
     >
       <Stack spacing={1} sx={{ mb: 8, textAlign: 'center' }}>
         <Typography variant="overline" sx={{ color: 'text.disabled' }}>
-          Our Work
+          {t('portfolio_overline')}
         </Typography>
-        <Typography variant="h2">Selected Showcase</Typography>
+        <Typography variant="h2">{t('portfolio_title')}</Typography>
       </Stack>
 
       <Stack

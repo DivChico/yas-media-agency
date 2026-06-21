@@ -18,6 +18,7 @@ import {
 // components
 import FormProvider, { RHFTextField, RHFSelect } from 'src/components/hook-form';
 import Iconify from 'src/components/iconify';
+import { useLocales } from 'src/hooks/useLocales';
 
 // ----------------------------------------------------------------------
 
@@ -31,21 +32,23 @@ const Schema = Yup.object().shape({
 
 type FormValues = Yup.InferType<typeof Schema>;
 
-const SERVICE_OPTIONS = [
-  { value: 'digital-marketing', label: 'Digital Marketing' },
-  { value: 'campaign-management', label: 'Campaign Management' },
-  { value: 'social-media', label: 'Social Media' },
-  { value: 'brand-identity', label: 'Brand Identity' },
-  { value: 'content-creation', label: 'Content Creation' },
-  { value: 'seo', label: 'SEO' },
-  { value: 'digital-transformation', label: 'Digital Transformation' },
-  { value: 'ai-automation', label: 'AI & Automation' },
-  { value: 'crm', label: 'CRM' },
+const SERVICE_OPTIONS: { value: string; labelKey: 'contact_service_dm' | 'contact_service_cm' | 'contact_service_sm' | 'contact_service_bi' | 'contact_service_cc' | 'contact_service_seo' | 'contact_service_dt' | 'contact_service_ai' | 'contact_service_crm' }[] = [
+  { value: 'digital-marketing', labelKey: 'contact_service_dm' },
+  { value: 'campaign-management', labelKey: 'contact_service_cm' },
+  { value: 'social-media', labelKey: 'contact_service_sm' },
+  { value: 'brand-identity', labelKey: 'contact_service_bi' },
+  { value: 'content-creation', labelKey: 'contact_service_cc' },
+  { value: 'seo', labelKey: 'contact_service_seo' },
+  { value: 'digital-transformation', labelKey: 'contact_service_dt' },
+  { value: 'ai-automation', labelKey: 'contact_service_ai' },
+  { value: 'crm', labelKey: 'contact_service_crm' },
 ];
 
 // ----------------------------------------------------------------------
 
 export default function ContactMarketing() {
+  const { t } = useLocales();
+
   const [open, setOpen] = useState(false);
 
   const methods = useForm<FormValues>({
@@ -90,12 +93,11 @@ export default function ContactMarketing() {
                 variant="h2"
                 sx={{ color: 'common.white', mb: 1.5 }}
               >
-                Let&apos;s Build Your Legacy
+                {t('contact_title')}
               </Typography>
 
               <Typography sx={{ color: 'grey.500', mb: 4, maxWidth: 400 }}>
-                Ready to elevate your brand? Fill out the form and our team will
-                get back to you within 24 hours.
+                {t('contact_subtitle')}
               </Typography>
 
               <Stack spacing={3}>
@@ -150,24 +152,25 @@ export default function ContactMarketing() {
                   onSubmit={handleSubmit(onSubmit)}
                 >
                   <Stack spacing={2.5}>
-                    <RHFTextField name="name" label="Name" />
-                    <RHFTextField name="email" label="Email" type="email" />
-                    <RHFTextField name="phone" label="Phone" type="tel" />
+                    <RHFTextField name="name" label={t('contact_name')} placeholder={t('contact_name_placeholder')} />
+                    <RHFTextField name="email" label={t('contact_email')} type="email" placeholder={t('contact_email_placeholder')} />
+                    <RHFTextField name="phone" label={t('contact_phone')} type="tel" placeholder={t('contact_phone_placeholder')} />
 
-                    <RHFSelect name="service" label="Service Interest">
+                    <RHFSelect name="service" label={t('contact_service')}>
                       <MenuItem value="" disabled>
-                        Select a service
+                        {t('contact_service_placeholder')}
                       </MenuItem>
                       {SERVICE_OPTIONS.map((option) => (
                         <MenuItem key={option.value} value={option.value}>
-                          {option.label}
+                          {t(option.labelKey)}
                         </MenuItem>
                       ))}
                     </RHFSelect>
 
                     <RHFTextField
                       name="message"
-                      label="Message"
+                      label={t('contact_message')}
+                      placeholder={t('contact_message_placeholder')}
                       multiline
                       rows={4}
                     />
@@ -181,7 +184,7 @@ export default function ContactMarketing() {
                     loading={isSubmitting}
                     sx={{ mt: 3, px: 5 }}
                   >
-                    Send Message
+                    {t('contact_submit')}
                   </LoadingButton>
                 </FormProvider>
               </Box>
@@ -200,7 +203,7 @@ export default function ContactMarketing() {
           severity="success"
           onClose={() => setOpen(false)}
         >
-          Message sent successfully! We&apos;ll be in touch soon.
+          {t('contact_success_title')} {t('contact_success_desc')}
         </Alert>
       </Snackbar>
     </>

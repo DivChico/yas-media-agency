@@ -8,7 +8,7 @@ export default function MarketingLandingWhatsApp() {
     <Box sx={{ position: 'fixed', bottom: 24, right: 24, zIndex: 9999 }}>
       <IconButton
         component="a"
-        href="https://wa.me/96650993996"
+        href="https://wa.me/96560993996"
         target="_blank"
         rel="noopener"
         sx={{

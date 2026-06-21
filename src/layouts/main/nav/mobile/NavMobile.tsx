@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import NextLink from 'next/link';
 // @mui
 import { List, Drawer, IconButton, Button, Stack } from '@mui/material';
+// hooks
+import { useLocales } from 'src/hooks/useLocales';
 // config
 import { NAV } from 'src/config-global';
 // components
@@ -16,7 +18,24 @@ import NavList from './NavList';
 
 // ----------------------------------------------------------------------
 
+const navTitleKey = (
+  title: string
+): 'nav_home' | 'nav_services' | 'nav_portfolio' | 'nav_about' | 'nav_contact' => {
+  const map: Record<
+    string,
+    'nav_home' | 'nav_services' | 'nav_portfolio' | 'nav_about' | 'nav_contact'
+  > = {
+    home: 'nav_home',
+    services: 'nav_services',
+    portfolio: 'nav_portfolio',
+    about: 'nav_about',
+    contact: 'nav_contact',
+  };
+  return map[title.toLowerCase()] || 'nav_home';
+};
+
 export default function NavMobile({ data }: NavProps) {
+  const { t } = useLocales();
   const { pathname } = useRouter();
 
   const [open, setOpen] = useState(false);
@@ -57,7 +76,10 @@ export default function NavMobile({ data }: NavProps) {
 
           <List component="nav" disablePadding>
             {data.map((link) => (
-              <NavList key={link.title} item={link} />
+              <NavList
+                key={link.title}
+                item={{ ...link, title: t(navTitleKey(link.title)) }}
+              />
             ))}
           </List>
 
@@ -69,7 +91,7 @@ export default function NavMobile({ data }: NavProps) {
               component={NextLink}
               href="/contact"
             >
-              Let&apos;s Talk
+              {t('nav_cta')}
             </Button>
           </Stack>
         </Scrollbar>

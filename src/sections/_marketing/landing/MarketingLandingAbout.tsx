@@ -2,14 +2,17 @@ import { Stack, Container, Typography, Box, Unstable_Grid2 as Grid } from '@mui/
 import { alpha } from '@mui/material/styles';
 import { bgBlur } from 'src/utils/cssStyles';
 import Iconify from 'src/components/iconify';
-
-const STATS = [
-  { label: 'Clients', value: '99+', icon: 'carbon:enterprise' },
-  { label: 'Projects', value: '250+', icon: 'carbon:task-completed' },
-  { label: 'Years Experience', value: '5+', icon: 'carbon:time' },
-];
+import { useLocales } from 'src/hooks/useLocales';
 
 export default function MarketingLandingAbout() {
+  const { t } = useLocales();
+
+  const STATS = [
+    { label: t('about_stat_clients_label'), value: t('about_stat_clients'), icon: 'carbon:enterprise' },
+    { label: t('about_stat_projects_label'), value: t('about_stat_projects'), icon: 'carbon:task-completed' },
+    { label: t('about_stat_years_label'), value: t('about_stat_years'), icon: 'carbon:time' },
+  ];
+
   return (
     <Box sx={{ position: 'relative', overflow: 'hidden' }}>
       <Box
@@ -28,17 +31,13 @@ export default function MarketingLandingAbout() {
         <Grid container columnSpacing={{ xs: 0, md: 8 }} rowSpacing={{ xs: 5, md: 0 }} alignItems="center">
           <Grid xs={12} md={6}>
             <Typography component="div" variant="overline" sx={{ color: 'secondary.main', mb: 1 }}>
-              About YAS Media Agency
+              {t('about_overline')}
             </Typography>
             <Typography variant="h2" sx={{ mb: 3 }}>
-              AI-Native Marketing for the Modern Enterprise
+              {t('about_title')}
             </Typography>
             <Typography sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
-              Based in Riyadh, YAS Media Agency is an AI-native marketing partner serving enterprises
-              across the Kingdom of Saudi Arabia and the GCC. We combine deep regional expertise with
-              cutting-edge artificial intelligence to deliver measurable, data-driven results. From
-              brand strategy to performance marketing, every solution is engineered to drive growth
-              in the digital economy.
+              {t('about_description')}
             </Typography>
           </Grid>
           <Grid xs={12} md={6}>

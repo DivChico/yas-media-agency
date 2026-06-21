@@ -5,6 +5,7 @@ import { Box, Container, Typography, Button, Stack } from '@mui/material';
 import { bgGradient } from 'src/utils/cssStyles';
 // hooks
 import useResponsive from 'src/hooks/useResponsive';
+import { useLocales } from 'src/hooks/useLocales';
 // components
 import Iconify from 'src/components/iconify';
 
@@ -34,6 +35,7 @@ const glassPanel = {
 
 export default function MarketingLandingHero() {
   const isMdUp = useResponsive('up', 'md');
+  const { t } = useLocales();
 
   return (
     <StyledRoot>
@@ -77,12 +79,12 @@ export default function MarketingLandingHero() {
                 variant="overline"
                 sx={{ color: 'secondary.main', letterSpacing: '0.12em', fontWeight: 700 }}
               >
-                AI-NATIVE DIGITAL MARKETING AGENCY
+                {t('hero_tagline')}
               </Typography>
             </Stack>
 
             <Typography variant="h1" sx={{ fontWeight: 800, lineHeight: 1.1, mb: 1 }}>
-              Drive Growth with
+              {t('hero_title_1')}
             </Typography>
 
             <Typography
@@ -96,7 +98,7 @@ export default function MarketingLandingHero() {
                 mb: 3,
               }}
             >
-              AI-Powered Marketing
+              {t('hero_title_2')}
             </Typography>
 
             <Typography
@@ -107,9 +109,7 @@ export default function MarketingLandingHero() {
                 fontSize: { xs: 14, md: 16 },
               }}
             >
-              YAS Media Agency is an AI-Native digital marketing partner for enterprises across
-              Saudi Arabia and the GCC. We combine data-driven strategies, AI automation, and
-              creative excellence to deliver measurable results.
+              {t('hero_description')}
             </Typography>
 
             <Stack
@@ -135,7 +135,7 @@ export default function MarketingLandingHero() {
                 }}
                 endIcon={<Iconify width={18} icon="carbon:arrow-right" />}
               >
-                Start a Project
+                {t('hero_btn_primary')}
               </Button>
 
               <Button
@@ -158,7 +158,7 @@ export default function MarketingLandingHero() {
                 }}
                 endIcon={<Iconify width={18} icon="carbon:play" />}
               >
-                View Our Work
+                {t('hero_btn_secondary')}
               </Button>
             </Stack>
           </Box>
@@ -181,10 +181,10 @@ export default function MarketingLandingHero() {
                   WebkitTextFillColor: 'transparent',
                 }}
               >
-                250+
+                {t('hero_stat_1_value')}
               </Typography>
               <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
-                Projects Delivered
+                {t('hero_stat_1_label')}
               </Typography>
 
               <Box sx={{ my: 4, width: 60, height: 2, bgcolor: 'primary.main', mx: 'auto' }} />
@@ -198,15 +198,15 @@ export default function MarketingLandingHero() {
                   WebkitTextFillColor: 'transparent',
                 }}
               >
-                98%
+                {t('hero_stat_2_value')}
               </Typography>
               <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
-                Client Satisfaction
+                {t('hero_stat_2_label')}
               </Typography>
 
               <Box sx={{ mt: 5, p: 3, borderRadius: 2, background: 'rgba(251,239,45,0.06)', border: '1px solid rgba(251,239,45,0.15)' }}>
                 <Typography variant="caption" sx={{ color: 'secondary.main', fontWeight: 700, letterSpacing: '0.1em' }}>
-                  SAUDI ARABIA &bull; GCC
+                  {t('hero_region')}
                 </Typography>
               </Box>
             </Box>

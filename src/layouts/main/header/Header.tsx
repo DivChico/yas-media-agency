@@ -2,6 +2,7 @@
 import { useTheme } from '@mui/material/styles';
 import { Box, Stack, Button, AppBar, Toolbar, Container } from '@mui/material';
 // hooks
+import { useLocales } from 'src/hooks/useLocales';
 import useOffSetTop from 'src/hooks/useOffSetTop';
 import useResponsive from 'src/hooks/useResponsive';
 // utils
@@ -23,7 +24,8 @@ type Props = {
 
 export default function Header({ headerOnDark }: Props) {
   const theme = useTheme();
-  const { themeDirection, onToggleDirection } = useSettingsContext();
+  const { t } = useLocales();
+  const { onToggleDirection } = useSettingsContext();
 
   const isMdUp = useResponsive('up', 'md');
 
@@ -79,7 +81,7 @@ export default function Header({ headerOnDark }: Props) {
                 fontWeight: 700,
               }}
             >
-              {themeDirection === 'rtl' ? 'EN' : 'AR'}
+              {t('lang_switch_to')}
             </Button>
 
             {isMdUp && (
@@ -88,7 +90,7 @@ export default function Header({ headerOnDark }: Props) {
                 color="inherit"
                 href="/#contact"
               >
-                Work With Us
+                {t('nav_cta')}
               </Button>
             )}
           </Stack>

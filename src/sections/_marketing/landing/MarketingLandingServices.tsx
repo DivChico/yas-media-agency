@@ -1,84 +1,70 @@
+import { useMemo } from 'react';
 import { Stack, Container, Typography, Box } from '@mui/material';
 import Iconify from 'src/components/iconify';
-
-// ----------------------------------------------------------------------
-
-type Service = {
-  name: string;
-  icon: string;
-  description: string;
-  offerings: string[];
-};
-
-const SERVICES: Service[] = [
-  {
-    name: 'Digital Marketing',
-    icon: 'carbon:megaphone',
-    description:
-      'Performance-driven campaigns across all digital channels with data-backed optimization.',
-    offerings: ['Paid Social & Search Ads', 'Display & Programmatic', 'Performance Analytics'],
-  },
-  {
-    name: 'Campaign Management',
-    icon: 'carbon:chart-line',
-    description:
-      'End-to-end campaign strategy, execution, and optimization for maximum ROI.',
-    offerings: ['Strategy & Planning', 'A/B Testing & Optimization', 'Budget Management'],
-  },
-  {
-    name: 'Social Media Management',
-    icon: 'carbon:share',
-    description:
-      'Comprehensive social media presence management from content to community.',
-    offerings: ['Platform Management', 'Community Engagement', 'Social Listening'],
-  },
-  {
-    name: 'Brand Identity',
-    icon: 'carbon:droplet',
-    description:
-      'Creating distinctive brand identities that resonate with your target audience.',
-    offerings: ['Visual Identity Systems', 'Brand Guidelines', 'Brand Strategy'],
-  },
-  {
-    name: 'Content Creation',
-    icon: 'carbon:edit',
-    description:
-      'High-quality content that tells your brand story and drives engagement.',
-    offerings: ['Video Production', 'Copywriting', 'Graphic Design'],
-  },
-  {
-    name: 'SEO & Growth',
-    icon: 'carbon:search',
-    description:
-      'Data-driven SEO strategies to improve visibility and drive organic growth.',
-    offerings: ['Technical SEO', 'On-Page Optimization', 'Content Strategy'],
-  },
-  {
-    name: 'Digital Transformation',
-    icon: 'carbon:digital',
-    description:
-      'Helping businesses leverage digital technologies to transform operations.',
-    offerings: ['Process Automation', 'Digital Strategy', 'Technology Integration'],
-  },
-  {
-    name: 'AI & Automation',
-    icon: 'carbon:machine-learning',
-    description:
-      'Cutting-edge AI solutions to automate and optimize marketing operations.',
-    offerings: ['AI-Powered Analytics', 'Marketing Automation', 'Chatbot & CRM Integration'],
-  },
-  {
-    name: 'CRM & Marketing Automation',
-    icon: 'carbon:data-connected',
-    description:
-      'Integrated CRM solutions for better customer relationships and automated marketing.',
-    offerings: ['HubSpot/CRM Setup', 'Email Automation', 'Lead Scoring & Nurturing'],
-  },
-];
+import { useLocales } from 'src/hooks/useLocales';
 
 // ----------------------------------------------------------------------
 
 export default function MarketingLandingServices() {
+  const { t } = useLocales();
+
+  const services = useMemo(() => [
+    {
+      name: t('service_dm_name'),
+      icon: 'carbon:megaphone',
+      description: t('service_dm_desc'),
+      offerings: [t('service_dm_1'), t('service_dm_2'), t('service_dm_3')],
+    },
+    {
+      name: t('service_cm_name'),
+      icon: 'carbon:chart-line',
+      description: t('service_cm_desc'),
+      offerings: [t('service_cm_1'), t('service_cm_2'), t('service_cm_3')],
+    },
+    {
+      name: t('service_sm_name'),
+      icon: 'carbon:share',
+      description: t('service_sm_desc'),
+      offerings: [t('service_sm_1'), t('service_sm_2'), t('service_sm_3')],
+    },
+    {
+      name: t('service_bi_name'),
+      icon: 'carbon:droplet',
+      description: t('service_bi_desc'),
+      offerings: [t('service_bi_1'), t('service_bi_2'), t('service_bi_3')],
+    },
+    {
+      name: t('service_cc_name'),
+      icon: 'carbon:edit',
+      description: t('service_cc_desc'),
+      offerings: [t('service_cc_1'), t('service_cc_2'), t('service_cc_3')],
+    },
+    {
+      name: t('service_seo_name'),
+      icon: 'carbon:search',
+      description: t('service_seo_desc'),
+      offerings: [t('service_seo_1'), t('service_seo_2'), t('service_seo_3')],
+    },
+    {
+      name: t('service_dt_name'),
+      icon: 'carbon:digital',
+      description: t('service_dt_desc'),
+      offerings: [t('service_dt_1'), t('service_dt_2'), t('service_dt_3')],
+    },
+    {
+      name: t('service_ai_name'),
+      icon: 'carbon:machine-learning',
+      description: t('service_ai_desc'),
+      offerings: [t('service_ai_1'), t('service_ai_2'), t('service_ai_3')],
+    },
+    {
+      name: t('service_crm_name'),
+      icon: 'carbon:data-connected',
+      description: t('service_crm_desc'),
+      offerings: [t('service_crm_1'), t('service_crm_2'), t('service_crm_3')],
+    },
+  ], [t]);
+
   return (
     <Container id="services" sx={{ py: { xs: 5, md: 10 }, position: 'relative', overflow: 'hidden' }}>
       <Box
@@ -108,11 +94,11 @@ export default function MarketingLandingServices() {
         }}
       >
         <Typography variant="overline" sx={{ color: 'text.disabled', letterSpacing: 2 }}>
-          Our Services
+          {t('services_overline')}
         </Typography>
 
         <Typography variant="h2" sx={{ color: 'common.white' }}>
-          Everything your brand needs to grow.
+          {t('services_title')}
         </Typography>
       </Stack>
 
@@ -129,7 +115,7 @@ export default function MarketingLandingServices() {
           zIndex: 1,
         }}
       >
-        {SERVICES.map((service) => (
+        {services.map((service) => (
           <ServiceCard key={service.name} service={service} />
         ))}
       </Box>
@@ -140,7 +126,12 @@ export default function MarketingLandingServices() {
 // ----------------------------------------------------------------------
 
 type ServiceCardProps = {
-  service: Service;
+  service: {
+    name: string;
+    icon: string;
+    description: string;
+    offerings: string[];
+  };
 };
 
 function ServiceCard({ service }: ServiceCardProps) {
